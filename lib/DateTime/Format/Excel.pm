@@ -1,5 +1,5 @@
 package DateTime::Format::Excel;
-# $Id: Excel.pm,v 1.5 2003/10/11 05:10:54 koschei Exp $
+# $Id: Excel.pm,v 1.6 2004/01/26 19:04:02 autarch Exp $
 
 =head1 NAME
 
@@ -10,10 +10,10 @@ DateTime::Format::Excel - Convert between DateTime and Excel dates.
 use strict;
 use 5.005;
 use Carp;
-use DateTime 0.07;
+use DateTime 0.1705;
 use vars qw( $VERSION );
 
-$VERSION = '0.29';
+$VERSION = '0.2901';
 
 =head1 SYNOPSIS
 
@@ -300,7 +300,7 @@ list. See http://lists.perl.org/ for more details.
 
 Alternatively, log them via the CPAN RT system via the web or email:
 
-    http://perl.dellah.org/rt/dtexcel
+    http://rt.cpan.org/NoAuth/ReportBug.html?Queue=DateTime%3A%3AFormat%3A%3AExcel
     bug-datetime-format-excel@rt.cpan.org
 
 This makes it much easier for me to track things and thus means
@@ -317,7 +317,10 @@ F<COPYING> files included with this module.
 
 =head1 AUTHOR
 
-Iain Truskett <spoon@cpan.org>
+Originally written by Iain Truskett <spoon@cpan.org>, who died on
+December 29, 2003.
+
+Maintained by Dave Rolsky <autarch@urth.org>.
 
 =head1 SEE ALSO
 

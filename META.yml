@@ -1,32 +1,16 @@
 --- #YAML:1.0
-# http://module-build.sourceforge.net/META-spec.html
-distribution_type: module
 name: DateTime-Format-Excel
-date: 11 Oct 2003
-author: SPOON
-version: 0.29
+version: 0.2901
 license: perl
-
-conflicts: {}
-
-build_requires:
-  Test::More: 0.47
-recommends:
-  File::Find::Rule: 0.24
-  Test::Pod: 0.95
-  Test::Signature: 1.05
+distribution_type: module
 requires:
   DateTime: 0.1705
-  DateTime::Duration: 0
-
-private:
-  directory:
-    - t
-
+  Test::More: 0.47
+recommends: {}
+build_requires: {}
+conflicts: {}
 provides:
   DateTime::Format::Excel:
     file: lib/DateTime/Format/Excel.pm
-    version: 0.29
-
-dynamic_config: 0
-generated_by: docmaker version 1.01
+    version: 0.2901
+generated_by: Module::Build version 0.21

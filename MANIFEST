@@ -1,18 +1,18 @@
 Artistic
 AUTHORS
+Build.PL
 Changes
 COPYING
 CREDITS
-INSTALL
 lib/DateTime/Format/Excel.pm
-LICENCE
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
 META.yml
 README
-SIGNATURE
+t/00pod.t
 t/00signature.t
-t/99pod.t
 t/basic.t
 t/clone.t
+
+SIGNATURE    Added here by Module::Build
