@@ -1,0 +1,7 @@
+\.sw.$
+^_build/
+^Build$
+^blib/
+^Makefile$
+^DateTime-Format-Excel-
+^MANIFEST.bak$

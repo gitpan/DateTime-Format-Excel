@@ -1,0 +1,25 @@
+____________________________________________________________________________
+[   241] By: iain                                  on 2003/03/10  11:36:07
+        Log: - 0.26
+	   ! Changes
+____________________________________________________________________________
+[   240] By: iain                                  on 2003/03/10  11:26:30
+        Log: - Documentation nits.
+             - Works under 5.005.
+	   ! lib/DateTime/Format/Excel.pm
+____________________________________________________________________________
+[   239] By: iain                                  on 2003/03/10  11:26:26
+        Log: - Development tests not required to run on end-user.
+             - Tests work under 5.005 now.
+	   ! Build.PL t/00pod.t t/00signature.t t/basic.t t/clone.t
+____________________________________________________________________________
+[   234] By: iain                                  on 2003/03/09  23:28:59
+        Log: - 0.25
+	   + Changes MANIFEST
+	   ! lib/DateTime/Format/Excel.pm
+____________________________________________________________________________
+[   233] By: iain                                  on 2003/03/09  23:12:58
+        Log: - Project start.
+	   + Build.PL MANIFEST.SKIP Makefile.PL
+	   + lib/DateTime/Format/Excel.pm t/00pod.t t/00signature.t
+	   + t/basic.t t/clone.t

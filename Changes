@@ -1,0 +1,17 @@
+# Change log for DateTime::Format::Excel
+
+---
+version: 0.26
+date:    10 Mar 2003
+changes:
+   - Documentation nits.
+   - Works under 5.005.
+   - Development tests not required to run on end-user.
+   - Tests work under 5.005 now.
+
+---
+version: 0.25
+date:    9 Mar 2003
+changes:
+    - Initial version.
+

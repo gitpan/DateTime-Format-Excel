@@ -1,0 +1,21 @@
+DateTime::Format::Excel
+
+   Easy conversion between Excel's day number date system and the
+   DateTime object.
+
+For installation details, see INSTALL.
+
+For usage, see the doco. Either use perldoc or view it
+on the web at:
+    <http://search.cpan.org/author/SPOON/DateTime-Format-Excel/>
+
+Changes for 0.26 (10 Mar 2003)
+   - Documentation nits.
+   - Works under 5.005.
+   - Development tests not required to run on end-user.
+   - Tests work under 5.005 now.
+
+For a complete list of changes, see the Changes file.
+
+
+by Iain Truskett.
