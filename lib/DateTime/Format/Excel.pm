@@ -13,7 +13,7 @@ use Carp;
 use DateTime 0.07;
 use vars qw( $VERSION );
 
-$VERSION = '0.27';
+$VERSION = '0.28';
 
 =head1 SYNOPSIS
 

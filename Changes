@@ -1,6 +1,13 @@
 # Change log for DateTime::Format::Excel
 
 ---
+version: 0.28
+date:    4 Apr 2003
+changes:
+   - No code or doc changes.
+   - Fix to Makefile.PL regarding prerequisites.
+
+---
 version: 0.27
 date:    23 Mar 2003
 changes:
