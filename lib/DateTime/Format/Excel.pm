@@ -1,5 +1,5 @@
 package DateTime::Format::Excel;
-# $Id: Excel.pm,v 1.2 2003/03/23 11:09:52 koschei Exp $
+# $Id: Excel.pm,v 1.5 2003/10/11 05:10:54 koschei Exp $
 
 =head1 NAME
 
@@ -13,7 +13,7 @@ use Carp;
 use DateTime 0.07;
 use vars qw( $VERSION );
 
-$VERSION = '0.28';
+$VERSION = '0.29';
 
 =head1 SYNOPSIS
 
@@ -50,6 +50,10 @@ methods.
 
 If you happen to be dealing with dates between S<1 Jan 1900> and
 S<1 Mar 1900> please read the notes on L<epochs|/EPOCHS>.
+
+
+If you're wanting to handle actual spreadsheet files, you may find
+L<Spreadsheet::WriteExcel> and L<Spreadsheet::ParseExcel> of use.
 
 =head1 CONSTRUCTORS
 
@@ -157,8 +161,7 @@ sub format_datetime
     my $dt = shift;
 
     my $base = DateTime->new( $self->epoch );
-    my $interval = $dt - $base;
-    my $excel = $interval->delta_days;
+    my $excel = int( $dt->jd - $base->jd );
 
     return $excel;
 }
@@ -303,19 +306,14 @@ Alternatively, log them via the CPAN RT system via the web or email:
 This makes it much easier for me to track things and thus means
 your problem is less likely to be neglected.
 
-=head1 LICENSE AND COPYRIGHT
+=head1 LICENCE AND COPYRIGHT
 
 Copyright E<copy> 2003 Iain Truskett. All rights reserved. This library
 is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.
 
-The full text of the licenses can be found in the F<Artistic> and
+The full text of the licences can be found in the F<Artistic> and
 F<COPYING> files included with this module.
-
-=head1 ABSTRACT
-
-Easy conversion between Excel's day number date system and the C<DateTime>
-object.
 
 =head1 AUTHOR
 
@@ -327,6 +325,6 @@ datetime@perl.org mailing list.
 
 http://datetime.perl.org/
 
-L<perl>, L<DateTime>
+L<perl>, L<DateTime>, L<Spreadsheet::WriteExcel>
 
 =cut

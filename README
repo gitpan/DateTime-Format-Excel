@@ -1,6 +1,6 @@
 DateTime::Format::Excel
 
-   Convert between DateTime and Excel dates.
+    Convert between DateTime and Excel dates.
 
 For installation details, see INSTALL.
 
@@ -8,9 +8,9 @@ For usage, see the doco. Either use perldoc or view it
 on the web at:
     <http://search.cpan.org/author/SPOON/DateTime-Format-Excel/>
 
-Changes for 0.28 (4 Apr 2003)
-   - No code or doc changes.
-   - Fix to Makefile.PL regarding prerequisites.
+Changes for 0.29 (11 Oct 2003)
+   - Avoided problem with Duration.
+
 
 For a complete list of changes, see the Changes file.
 

@@ -1,6 +1,12 @@
 # Change log for DateTime::Format::Excel
 
 ---
+version: 0.29
+date:    11 Oct 2003
+changes:
+   - Avoided problem with Duration.
+
+---
 version: 0.28
 date:    4 Apr 2003
 changes:

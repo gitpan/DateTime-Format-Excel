@@ -1,10 +1,8 @@
-LICENSE FOR DateTime::Format::Excel 0.28
+LICENCE FOR DateTime::Format::Excel 0.29
 
 Copyright © 2003 Iain Truskett. All rights reserved. This library
 is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.
 
-The full text of the licenses can be found in the Artistic and
+The full text of the licences can be found in the Artistic and
 COPYING files included with this module.
-
-See the supplied 'Artistic' and 'COPYING' files for the respective licenses.
