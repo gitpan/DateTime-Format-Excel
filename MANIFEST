@@ -1,19 +1,19 @@
-Artistic			One half of the license
-Build.PL			Module::Build creation script
-COPYING				The other half
-ChangeLog			Changes according to version control
-Changes				Human readable change list
-INSTALL				How to install this module
-LICENSE				License umbrella
-MANIFEST			This list of files
-MANIFEST.SKIP			Files not to include in this list
-META.yml			Package metadata
-Makefile.PL			Faking for ExtUtils::MakeMaker
-README				Read this file first
-SIGNATURE			Cryptographic authentication
-lib/DateTime/Format/Excel.pm	The actual module
-t/00pod.t			POD tests
-t/00signature.t			Signature tests
-t/basic.t			Basic tests
-t/clone.t			Cloning and epoch setting tests
+AUTHORS
+Artistic
+COPYING
 CREDITS
+ChangeLog
+Changes
+INSTALL
+LICENSE
+MANIFEST
+MANIFEST.SKIP
+META.yml
+Makefile.PL
+README
+SIGNATURE
+lib/DateTime/Format/Excel.pm
+t/00pod.t
+t/00signature.t
+t/basic.t
+t/clone.t

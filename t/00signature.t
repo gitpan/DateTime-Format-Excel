@@ -1,4 +1,4 @@
-# $Id: //depot/DateTime-Format-Excel/t/00signature.t#2 $
+# $Id: 00signature.t,v 1.1 2003/03/21 05:35:57 koschei Exp $
 use strict;
 use Test::More tests => 1;
 

@@ -1,4 +1,4 @@
-# $Id: //depot/DateTime-Format-Excel/t/00pod.t#2 $
+# $Id: 00pod.t,v 1.1 2003/03/21 05:35:57 koschei Exp $
 use strict;
 use vars qw( @files );
 

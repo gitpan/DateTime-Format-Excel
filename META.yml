@@ -1,13 +1,17 @@
 --- #YAML:1.0
-name: DateTime-Format-Excel
-version: 0.26
-license: perl
-distribution_type: module
-requires:
-  DateTime: 0.07
-  perl: 5.6.0
-recommends: {}
 build_requires:
   Test::More: 0.47
+  Test: 1.23
 conflicts: {}
-generated_by: Module::Build version 0.16
+distribution_type: module
+license: perl
+name: DateTime-Format-Excel
+recommends:
+  Test::Pod: 0.95
+  Test::Signature: 1.03
+requires:
+  DateTime::Duration: 0
+  DateTime: 0.08
+  Carp: 1.01
+version: 0.27
+generated_by: docmaker version 0.89

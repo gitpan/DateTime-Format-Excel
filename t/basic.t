@@ -1,4 +1,4 @@
-# $Id: //depot/DateTime-Format-Excel/t/basic.t#2 $
+# $Id: basic.t,v 1.1 2003/03/21 05:35:58 koschei Exp $
 use strict;
 use Test::More tests => 62;
 
