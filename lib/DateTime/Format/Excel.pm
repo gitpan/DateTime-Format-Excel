@@ -13,7 +13,7 @@ use Carp;
 use DateTime 0.1705;
 use vars qw( $VERSION );
 
-$VERSION = '0.2901';
+$VERSION = '0.30';
 
 =head1 SYNOPSIS
 
@@ -22,23 +22,31 @@ $VERSION = '0.2901';
     # From Excel via class method:
 
     my $datetime = DateTime::Format::Excel->parse_datetime( 37680 );
-    print $datetime->ymd('.'); # '2003.02.28'
+    print $datetime->ymd();     # prints 2003-02-28
+
+    my $datetime = DateTime::Format::Excel->parse_datetime( 40123.625 );
+    print $datetime->iso8601(); # prints 2009-11-06T15:00:00
 
     #  or via an object
     
     my $excel = DateTime::Format::Excel->new();
-    print $excel->parse_datetime( 25569 )->ymd; # '1970-01-01'
+    print $excel->parse_datetime( 25569 )->ymd; # prints 1970-01-01
 
     # Back to Excel number:
     
     use DateTime;
     my $dt = DateTime->new( year => 1979, month => 7, day => 16 );
     my $daynum = DateTime::Format::Excel->format_datetime( $dt );
-    print $daynum; # 29052
+    print $daynum; # prints 29052
 
-    # or via an object
+    my $dt_with_time = DateTime->new( year => 2010, month => 7, day => 23
+                                    , hour => 18, minute => 20 );
+    my $excel_date = DateTime::Format::Excel->format_datetime( $dt_with_time );
+    print $excel_date; # prints 40382.763888889
+
+    # or via the object created above
     my $other_daynum = $excel->format_datetime( $dt );
-    print $other_daynum; # 29052
+    print $other_daynum; # prints 29052
 
 =head1 DESCRIPTION
 
@@ -51,6 +59,12 @@ methods.
 If you happen to be dealing with dates between S<1 Jan 1900> and
 S<1 Mar 1900> please read the notes on L<epochs|/EPOCHS>.
 
+Since version 0.30 this modules handles the time part (the decimal 
+fraction of the Excel time number) correctly, so you can convert
+a single point in time to and from Excel format. (Older versions
+did only calculate the day number, effectively loosing the time
+of day information).
+The H:M:S is stored as a fraction where 1 second = 1 / (60*60*24).
 
 If you're wanting to handle actual spreadsheet files, you may find
 L<Spreadsheet::WriteExcel> and L<Spreadsheet::ParseExcel> of use.
@@ -127,12 +141,19 @@ sub parse_datetime
 {
     my $self = shift;
     croak 'No date specified.' unless @_;
-    croak 'Invalid number of days' unless $_[0] =~ /^ (\d+ (?: \.\d+ )? ) $/x;
-    my $excel = $1;
-
+    croak 'Invalid number of days' unless $_[0] =~ /^ (\d+ (?: (\.\d+ ) )? ) $/x;
+    my $excel_days = $1;
+    my $excel_secs = $2;
     my $dt = DateTime->new( $self->epoch );
-    $dt->add( days => $excel );
-
+    if(defined $excel_secs){
+       $excel_secs           = $excel_secs * 86400; # RT7498
+       my $excel_nanoseconds = ($excel_secs - int($excel_secs)) * 1_000_000_000;
+       $dt->add( days        => $excel_days,
+                 seconds     => $excel_secs,
+                 nanoseconds => $excel_nanoseconds);
+    } else {
+       $dt->add( days => $excel_days );
+    }
     return $dt;
 }
 
@@ -161,7 +182,7 @@ sub format_datetime
     my $dt = shift;
 
     my $base = DateTime->new( $self->epoch );
-    my $excel = int( $dt->jd - $base->jd );
+    my $excel = $dt->jd - $base->jd; # RT7498
 
     return $excel;
 }
@@ -303,14 +324,14 @@ Alternatively, log them via the CPAN RT system via the web or email:
     http://rt.cpan.org/NoAuth/ReportBug.html?Queue=DateTime%3A%3AFormat%3A%3AExcel
     bug-datetime-format-excel@rt.cpan.org
 
-This makes it much easier for me to track things and thus means
+This makes it much easier for us to track things and thus means
 your problem is less likely to be neglected.
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright E<copy> 2003 Iain Truskett. All rights reserved. This library
-is free software; you can redistribute it and/or modify it under the
-same terms as Perl itself.
+Copyright E<copy> 2003-2010 Iain Truskett, Dave Rolsky, Achim Bursian. 
+All rights reserved. This library is free software; you can redistribute 
+it and/or modify it under the same terms as Perl itself.
 
 The full text of the licences can be found in the F<Artistic> and
 F<COPYING> files included with this module.
@@ -320,7 +341,15 @@ F<COPYING> files included with this module.
 Originally written by Iain Truskett <spoon@cpan.org>, who died on
 December 29, 2003.
 
-Maintained by Dave Rolsky <autarch@urth.org>.
+Maintained by Dave Rolsky <autarch@urth.org> and, since 2010-06-01, by 
+Achim Bursian <aburs@cpan.org>.
+
+The following people have either submitted patches or suggestions,
+or their bug reports or comments have inspired the appropriate
+patches.  
+
+ Peter (Stig) Edwards  
+ Bobby Metz
 
 =head1 SEE ALSO
 

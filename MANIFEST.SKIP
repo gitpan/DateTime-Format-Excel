@@ -2,7 +2,7 @@
 \bRCS\b
 \bCVS\b
 ^_build/
-^Build$
+^Build(.bat)?$
 ^blib/
 ^Makefile$
 ^DateTime-Format-Excel-
@@ -16,3 +16,4 @@
 \.patch$
 ^log$
 ^data\.yaml$
+^MYMETA.yml$
