@@ -1,5 +1,5 @@
 package DateTime::Format::Excel;
-# $Id: Excel.pm,v 1.6 2004/01/26 19:04:02 autarch Exp $
+# $Id: Excel.pm 4458 2010-10-20 09:53:33Z achim66 $
 
 =head1 NAME
 
@@ -13,7 +13,7 @@ use Carp;
 use DateTime 0.1705;
 use vars qw( $VERSION );
 
-$VERSION = '0.30';
+$VERSION = '0.31';
 
 =head1 SYNOPSIS
 

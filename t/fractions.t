@@ -2,6 +2,11 @@ use strict;
 use Test::More tests => 28;
 use DateTime::Format::Excel;
 
+sub round {
+  my $v = shift;
+  return sprintf('%9.7f', $v);
+}  
+
 my @test_data = (
     {   year    => 2003,
         month   => 2,
@@ -140,8 +145,9 @@ foreach my $test_data (@test_data) {
         minute => $test_data->{minute},
         second => $test_data->{second}
     );
-    my $got_excel = DateTime::Format::Excel->format_datetime($dt);
-    is( $got_excel => $test_data->{excel}, " \$got_excel ($got_excel) ~ excel ($test_data->{excel})" );
+    my $got_excel = round(DateTime::Format::Excel->format_datetime($dt));
+    my $testdata = round($test_data->{excel});
+    is( $got_excel => $testdata, " \$got_excel ($got_excel) ~ excel ($testdata)" );
     my $got_dt      = DateTime::Format::Excel->parse_datetime( $test_data->{excel} );
     my $got_iso8601 = $got_dt->iso8601();
     is( $got_iso8601 => $test_data->{iso8601}, " \$got_iso8601 ($got_iso8601) ~ iso8601 ($test_data->{iso8601})" );

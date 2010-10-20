@@ -1,6 +1,12 @@
 # Change log for DateTime::Format::Excel
 
 ---
+version: 0.31
+date:    20 Oct 2010
+changes:
+   - Fixed: testsuite for 64 bit machines
+
+---
 version: 0.30
 date:    11 Jun 2010
 changes:
